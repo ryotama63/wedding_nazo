@@ -15,7 +15,7 @@
 
     <button class="accordion">
         <span>謎Aのヒント</span>
-        <span class="icon">▼</span>
+        <span class="icon">ー</span>
     </button>
     <div class="panel">
         <div class="panel-content">
@@ -25,7 +25,7 @@
 
     <button class="accordion">
         <span>謎Bのヒント</span>
-        <span class="icon">▼</span>
+        <span class="icon">ー</span>
     </button>
     <div class="panel">
         <div class="panel-content">
@@ -35,7 +35,7 @@
 
     <button class="accordion">
         <span>謎Cのヒント</span>
-        <span class="icon">▼</span>
+        <span class="icon">ー</span>
     </button>
     <div class="panel">
         <div class="panel-content">
@@ -45,7 +45,7 @@
 
     <button class="accordion">
         <span>まとめ謎のヒント</span>
-        <span class="icon">▼</span>
+        <span class="icon">ー</span>
     </button>
     <div class="panel">
         <div class="panel-content">
@@ -66,11 +66,11 @@ accordions.forEach(button => {
         if (panel.style.maxHeight) {
             // 閉じる
             panel.style.maxHeight = null;
-            icon.textContent = "-";
+            icon.textContent = "ー";
         } else {
             // 開く
             panel.style.maxHeight = panel.scrollHeight + "px";
-            icon.textContent = "+";
+            icon.textContent = "＋";
         }
     });
 });

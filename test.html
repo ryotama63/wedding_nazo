@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>問題一覧</title>
+
+<style>
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 16px;
+    background-color: #f5f5f5;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.accordion {
+    width: 100%;
+    background-color: #ffffff;
+    color: #333;
+    cursor: pointer;
+    padding: 16px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 8px;
+    text-align: left;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.accordion:hover {
+    background-color: #f0f0f0;
+}
+
+.icon {
+    font-size: 14px;
+    color: #666;
+}
+
+.panel {
+    background-color: #fff;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    border-radius: 0 0 8px 8px;
+}
+
+.panel-content {
+    padding: 16px;
+    color: #555;
+    line-height: 1.6;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <h1>問題一覧</h1>
+
+    <button class="accordion">
+        <span>問題A</span>
+        <span class="icon">▼</span>
+    </button>
+    <div class="panel">
+        <div class="panel-content">
+            問題Aの内容をここに記載
+        </div>
+    </div>
+
+    <button class="accordion">
+        <span>問題B</span>
+        <span class="icon">▼</span>
+    </button>
+    <div class="panel">
+        <div class="panel-content">
+            問題Bの内容をここに記載
+        </div>
+    </div>
+
+    <button class="accordion">
+        <span>問題C</span>
+        <span class="icon">▼</span>
+    </button>
+    <div class="panel">
+        <div class="panel-content">
+            問題Cの内容をここに記載
+        </div>
+    </div>
+
+    <button class="accordion">
+        <span>まとめ</span>
+        <span class="icon">▼</span>
+    </button>
+    <div class="panel">
+        <div class="panel-content">
+            まとめの内容をここに記載
+        </div>
+    </div>
+
+</div>
+
+<script>
+const accordions = document.querySelectorAll(".accordion");
+
+accordions.forEach(button => {
+    button.addEventListener("click", () => {
+
+        const panel = button.nextElementSibling;
+        const icon = button.querySelector(".icon");
+
+        if (panel.style.maxHeight) {
+            // 閉じる
+            panel.style.maxHeight = null;
+            icon.textContent = "▼";
+        } else {
+            // 開く
+            panel.style.maxHeight = panel.scrollHeight + "px";
+            icon.textContent = "▲";
+        }
+    });
+});
+</script>
+
+</body>
+</html>

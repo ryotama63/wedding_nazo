@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="./script/action.js"></script>
 <link rel="stylesheet" href="./css/design.css">
 <title>ウェディング謎ヒント</title>
 
@@ -55,5 +54,26 @@
     </div>
 
 </div>
+<script>
+const accordions = document.querySelectorAll(".accordion");
+
+accordions.forEach(button => {
+    button.addEventListener("click", () => {
+
+        const panel = button.nextElementSibling;
+        const icon = button.querySelector(".icon");
+
+        if (panel.style.maxHeight) {
+            // 閉じる
+            panel.style.maxHeight = null;
+            icon.textContent = "▼";
+        } else {
+            // 開く
+            panel.style.maxHeight = panel.scrollHeight + "px";
+            icon.textContent = "▲";
+        }
+    });
+});
+</script>
 </body>
 </html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="./css/design.css">
+<title>ウェディング謎</title>
+
+</head>
+<body>
+
+<div class="container">
+
+    <h1>ウェディング謎</h1>
+
+    <button class="accordion">
+        <span>謎Aのヒント</span>
+        <span class="icon">▼</span>
+    </button>
+    <div class="panel">
+        <div class="panel-content">
+            謎Aのヒントを記載
+        </div>
+    </div>
+
+    <button class="accordion">
+        <span>謎Bのヒント</span>
+        <span class="icon">▼</span>
+    </button>
+    <div class="panel">
+        <div class="panel-content">
+            謎Bのヒントを記載
+        </div>
+    </div>
+
+    <button class="accordion">
+        <span>謎Cのヒント</span>
+        <span class="icon">▼</span>
+    </button>
+    <div class="panel">
+        <div class="panel-content">
+            問題Cのヒントを記載
+        </div>
+    </div>
+
+    <button class="accordion">
+        <span>まとめ謎のヒント</span>
+        <span class="icon">▼</span>
+    </button>
+    <div class="panel">
+        <div class="panel-content">
+            まとめ謎のヒントを記載
+        </div>
+    </div>
+
+</div>
+<script>
+const accordions = document.querySelectorAll(".accordion");
+
+accordions.forEach(button => {
+    button.addEventListener("click", () => {
+
+        const panel = button.nextElementSibling;
+        const icon = button.querySelector(".icon");
+
+        if (panel.style.maxHeight) {
+            // 閉じる
+            panel.style.maxHeight = null;
+            icon.textContent = "-";
+        } else {
+            // 開く
+            panel.style.maxHeight = panel.scrollHeight + "px";
+            icon.textContent = "+";
+        }
+    });
+});
+</script>
+</body>
+</html>

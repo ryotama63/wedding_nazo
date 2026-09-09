@@ -1,9 +1,19 @@
-// .s_01 .accordion_one
-$(function(){
-  //.accordion_oneの中の.accordion_headerがクリックされたら
-  $('.s_01 .accordion_one .accordion_header').click(function(){
-    //クリックされた.accordion_oneの中の.accordion_headerに隣接する.accordion_innerが開いたり閉じたりする。
-    $(this).next('.accordion_inner').slideToggle();
-    $(this).toggleClass("open");
-  });
+const accordions = document.querySelectorAll(".accordion");
+
+accordions.forEach(button => {
+    button.addEventListener("click", () => {
+
+        const panel = button.nextElementSibling;
+        const icon = button.querySelector(".icon");
+
+        if (panel.style.maxHeight) {
+            // 閉じる
+            panel.style.maxHeight = null;
+            icon.textContent = "▼";
+        } else {
+            // 開く
+            panel.style.maxHeight = panel.scrollHeight + "px";
+            icon.textContent = "▲";
+        }
+    });
 });

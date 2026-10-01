@@ -39,6 +39,10 @@ h1 {
     background-color: #f0f0f0;
 }
 
+.accordion.child {
+    margin-left: 20px;
+    font-size: 0.9em;
+}
 .icon {
     font-size: 14px;
     color: #666;

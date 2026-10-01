@@ -74,14 +74,23 @@ accordions.forEach(button => {
         const panel = button.nextElementSibling;
         const icon = button.querySelector(".icon");
 
+        // 開閉処理
         if (panel.style.maxHeight) {
-            // 閉じる
             panel.style.maxHeight = null;
             icon.textContent = "▼";
         } else {
-            // 開く
             panel.style.maxHeight = panel.scrollHeight + "px";
             icon.textContent = "▲";
+        }
+
+        // ★★★ 入れ子対応：親パネルの高さを再計算する ★★★
+        let parent = panel.parentElement;
+        while (parent && parent.classList.contains("panel-content")) {
+            const parentPanel = parent.parentElement;
+            if (parentPanel.classList.contains("panel")) {
+                parentPanel.style.maxHeight = parentPanel.scrollHeight + "px";
+            }
+            parent = parentPanel.parentElement;
         }
     });
 });

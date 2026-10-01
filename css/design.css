@@ -46,6 +46,7 @@ h1 {
 
 .panel {
     background-color: #fff;
+    max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease;
     border-radius: 0 0 8px 8px;

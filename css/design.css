@@ -39,7 +39,7 @@ h1 {
     background-color: #f0f0f0;
 }
 /* 子アコーディオンの横幅を親と揃える */
-.accordion.child {
+.accordion.grandchild {
     width: calc(100% + 32px); /* padding 16px × 2 を打ち消す */
     margin-left: -16px;       /* 左の padding を打ち消す */
     margin-right: -16px;      /* 右の padding を打ち消す */

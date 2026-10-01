@@ -106,8 +106,12 @@ accordions.forEach(button => {
         } else {
             // 開く処理（親も子も共通）
             panel.style.height = panel.scrollHeight + "px";
-            icon.textContent = "▲";
             button.classList.add("open");
+            if (isChild) {
+                icon.textContent = "";
+            } else {
+                icon.textContent = "▲";
+            }
 
             adjustParentHeight(panel);
         }

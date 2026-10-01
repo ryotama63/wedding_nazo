@@ -93,10 +93,10 @@ accordions.forEach(button => {
             icon.textContent = "▼";
             button.classList.remove("open");
 
-            // ★ 子を閉じた後に親の高さを再計算（transition後に実行）
-            setTimeout(() => {
+            // ★ 子の閉じるアニメーションが終わってから親の高さを再計算
+            panel.addEventListener("transitionend", () => {
                 adjustParentHeight(panel);
-            }, 310); // ← transition時間(300ms)より少し長くする
+            }, { once: true });
 
         } else {
             // 開く
@@ -115,6 +115,7 @@ function adjustParentHeight(panel) {
     let parent = panel.parentElement;
 
     while (parent) {
+        // .panel のみ高さを再計算する（panel-content は無視）
         if (parent.classList.contains("panel")) {
             parent.style.height = parent.scrollHeight + "px";
         }

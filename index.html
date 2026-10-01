@@ -91,6 +91,7 @@ accordions.forEach(button => {
             // 閉じる
             panel.style.height = "0px";
             icon.textContent = "▼";
+            button.classList.remove("open");
 
             // ★ 子を閉じた後に親の高さを再計算（非同期で実行）
             setTimeout(() => {
@@ -101,6 +102,7 @@ accordions.forEach(button => {
             // 開く
             panel.style.height = panel.scrollHeight + "px";
             icon.textContent = "▲";
+            button.classList.add("open");
 
             // 親の高さを再計算
             adjustParentHeight(panel);

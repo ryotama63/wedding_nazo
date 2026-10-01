@@ -93,10 +93,10 @@ accordions.forEach(button => {
             icon.textContent = "▼";
             button.classList.remove("open");
 
-            // ★ 子を閉じた後に親の高さを再計算（非同期で実行）
+            // ★ 子を閉じた後に親の高さを再計算（transition後に実行）
             setTimeout(() => {
                 adjustParentHeight(panel);
-            }, 10);
+            }, 310); // ← transition時間(300ms)より少し長くする
 
         } else {
             // 開く

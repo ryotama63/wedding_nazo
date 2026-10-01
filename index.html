@@ -93,7 +93,7 @@ accordions.forEach(button => {
             icon.textContent = "▼";
             button.classList.remove("open");
 
-            // ★ 子の閉じるアニメーションが終わってから親の高さを再計算
+            // ★ 子の閉じるアニメーション完了後に親の高さを再計算
             panel.addEventListener("transitionend", () => {
                 adjustParentHeight(panel);
             }, { once: true });
@@ -115,7 +115,6 @@ function adjustParentHeight(panel) {
     let parent = panel.parentElement;
 
     while (parent) {
-        // .panel のみ高さを再計算する（panel-content は無視）
         if (parent.classList.contains("panel")) {
             parent.style.height = parent.scrollHeight + "px";
         }

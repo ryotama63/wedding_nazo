@@ -72,6 +72,5 @@ h1 {
 
 /* 孫アコーディオンの panel-content の padding を消す */
 .accordion.grandchild + .panel > .panel-content {
-    padding-left: 0;
-    padding-right: 0;
+    padding: 0;   /* ← 下の余白の原因を完全に消す */
 }

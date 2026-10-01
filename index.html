@@ -80,23 +80,34 @@ accordions.forEach(button => {
             // 閉じる
             panel.style.height = "0px";
             icon.textContent = "▼";
+
+            // ★ 子を閉じた後に親の高さを再計算（非同期で実行）
+            setTimeout(() => {
+                adjustParentHeight(panel);
+            }, 10);
+
         } else {
             // 開く
             panel.style.height = panel.scrollHeight + "px";
             icon.textContent = "▲";
-        }
 
-        // ★★★ 入れ子対応：親パネルの高さを再計算する ★★★
-        let parent = panel.parentElement;
-
-        while (parent) {
-            if (parent.classList.contains("panel")) {
-                parent.style.height = parent.scrollHeight + "px";
-            }
-            parent = parent.parentElement;
+            // 親の高さを再計算
+            adjustParentHeight(panel);
         }
     });
 });
+
+// ★★★ 親パネルの高さを正しく再計算する関数 ★★★
+function adjustParentHeight(panel) {
+    let parent = panel.parentElement;
+
+    while (parent) {
+        if (parent.classList.contains("panel")) {
+            parent.style.height = parent.scrollHeight + "px";
+        }
+        parent = parent.parentElement;
+    }
+}
 </script>
 </body>
 </html>

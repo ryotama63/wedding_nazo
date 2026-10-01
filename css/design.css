@@ -35,9 +35,11 @@ h1 {
     align-items: center;
 }
 
-.accordion:hover {
+.accordion:hover,
+.accordion.open {
     background-color: #f0f0f0;
 }
+
 /* 子アコーディオンの横幅を親と揃える */
 .accordion.grandchild {
     width: calc(100% + 32px); /* padding 16px × 2 を打ち消す */

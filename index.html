@@ -68,6 +68,11 @@
 <script>
 const accordions = document.querySelectorAll(".accordion");
 
+// 初期状態を JS 側で明示的に閉じる（CSS と競合しないようにする）
+document.querySelectorAll(".panel").forEach(panel => {
+    panel.style.maxHeight = null;
+});
+
 accordions.forEach(button => {
     button.addEventListener("click", () => {
 
@@ -90,7 +95,6 @@ accordions.forEach(button => {
         let parent = panel.parentElement;
 
         while (parent) {
-            // 親パネル（.panel）のみ高さを更新する
             if (parent.classList.contains("panel")) {
                 parent.style.maxHeight = parent.scrollHeight + "px";
             }

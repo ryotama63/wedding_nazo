@@ -86,14 +86,16 @@ accordions.forEach(button => {
             icon.textContent = "▲";
         }
 
-        // ★★★ 入れ子対応：親パネルの高さを再計算する ★★★
+        // ★★★ 入れ子対応：親パネルだけ高さを再計算する ★★★
         let parentPanel = panel.parentElement;
 
         while (parentPanel) {
+            // 親パネル（.panel）のみ高さを更新する
             if (parentPanel.classList.contains("panel")) {
-                // 親パネルは閉じないように、必ず高さを再計算して上書きする
                 parentPanel.style.maxHeight = parentPanel.scrollHeight + "px";
             }
+
+            // 次の親へ（panel → panel-content → panel → …）
             parentPanel = parentPanel.parentElement;
         }
     });

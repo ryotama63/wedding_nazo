@@ -41,7 +41,7 @@ h1 {
 }
 
 /* 子アコーディオンの横幅を親と揃える */
-.accordion.grandchild {
+.accordion.child {
     background-color: #f0f0f0;
 }
 /* 子アコーディオンの横幅を親と揃える */

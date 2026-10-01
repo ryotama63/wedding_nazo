@@ -68,35 +68,30 @@
 <script>
 const accordions = document.querySelectorAll(".accordion");
 
-// 初期状態を JS 側で明示的に閉じる（CSS と競合しないようにする）
-document.querySelectorAll(".panel").forEach(panel => {
-    panel.style.maxHeight = null;
-});
-
 accordions.forEach(button => {
     button.addEventListener("click", () => {
 
         const panel = button.nextElementSibling;
         const icon = button.querySelector(".icon");
 
-        const isOpen = panel.style.maxHeight;
+        const isOpen = panel.style.height && panel.style.height !== "0px";
 
         if (isOpen) {
             // 閉じる
-            panel.style.maxHeight = null;
+            panel.style.height = "0px";
             icon.textContent = "▼";
         } else {
             // 開く
-            panel.style.maxHeight = panel.scrollHeight + "px";
+            panel.style.height = panel.scrollHeight + "px";
             icon.textContent = "▲";
         }
 
-        // ★★★ 入れ子対応：親パネルの高さだけを再計算する ★★★
+        // ★★★ 入れ子対応：親パネルの高さを再計算する ★★★
         let parent = panel.parentElement;
 
         while (parent) {
             if (parent.classList.contains("panel")) {
-                parent.style.maxHeight = parent.scrollHeight + "px";
+                parent.style.height = parent.scrollHeight + "px";
             }
             parent = parent.parentElement;
         }

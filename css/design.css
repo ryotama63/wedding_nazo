@@ -70,6 +70,11 @@ h1 {
     line-height: 1.6;
 }
 
+/* 親アコーディオンの panel-content の文字位置を右へずらす */
+.accordion:not(.child):not(.grandchild) + .panel > .panel-content {
+    padding-left: 32px; /* ← 親だけ 16px → 32px に増やす */
+}
+
 /* 孫アコーディオンの panel-content の padding を消す */
 .accordion.grandchild + .panel > .panel-content {
     padding-bottom: 0;   /* 下だけ消す */

@@ -69,3 +69,9 @@ h1 {
     color: #555;
     line-height: 1.6;
 }
+
+/* 孫アコーディオンの panel-content の padding を消す */
+.accordion.grandchild + .panel > .panel-content {
+    padding-left: 0;
+    padding-right: 0;
+}

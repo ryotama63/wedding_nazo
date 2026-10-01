@@ -55,7 +55,7 @@ h1 {
     background-color: #fff;
     height: 0;              /* ← 初期状態は閉じる */
     overflow: hidden;
-    transition: height 0.3s ease;
+    transition: max-height 0.3s ease;
     border-radius: 0 0 8px 8px;
 }
 

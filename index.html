@@ -29,7 +29,7 @@
                 <div class="panel-content">
                     ここにさらに詳しいヒントを記載できます
                     <!-- ▼▼ 子アコーディオン ▼▼ -->
-                    <button class="accordion grandchild">
+                    <button class="accordion child grandchild">
                         <span>さらに詳しいヒント2</span>
                         <span class="icon">▼</span>
                     </button>
@@ -85,26 +85,30 @@ accordions.forEach(button => {
         const panel = button.nextElementSibling;
         const icon = button.querySelector(".icon");
 
+        const isChild = button.classList.contains("child") || button.classList.contains("grandchild");
         const isOpen = panel.style.height && panel.style.height !== "0px";
 
+        // ★ 子アコーディオンは閉じない
+        if (isChild && isOpen) {
+            return; // 閉じる処理を完全に無効化
+        }
+
         if (isOpen) {
-            // 閉じる
+            // 親アコーディオンの閉じる処理
             panel.style.height = "0px";
             icon.textContent = "▼";
             button.classList.remove("open");
 
-            // ★ 子の閉じるアニメーション完了後に親の高さを再計算
             panel.addEventListener("transitionend", () => {
                 adjustParentHeight(panel);
             }, { once: true });
 
         } else {
-            // 開く
+            // 開く処理（親も子も共通）
             panel.style.height = panel.scrollHeight + "px";
             icon.textContent = "▲";
             button.classList.add("open");
 
-            // 親の高さを再計算
             adjustParentHeight(panel);
         }
     });
@@ -121,6 +125,5 @@ function adjustParentHeight(panel) {
         parent = parent.parentElement;
     }
 }
-</script>
 </body>
 </html>

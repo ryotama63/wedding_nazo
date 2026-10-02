@@ -45,8 +45,7 @@ h1 {
     background-color: #f0f0f0;
 }
 /* 子・孫・孫答えアコーディオンの横幅を完全に揃える */
-.accordion.grandchild,
-.accordion.grandchild.answer {
+.accordion.grandchild {
     width: calc(100% + 32px); /* panel-content の左右 padding 16px × 2 を打ち消す */
     margin-left: -16px;
     margin-right: -16px;

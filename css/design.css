@@ -40,17 +40,14 @@ h1 {
     background-color: #f0f0f0;
 }
 
-/* 子アコーディオンの横幅を親と揃える */
-.accordion.child {
-    background-color: #f0f0f0;
-}
-/* 子アコーディオンの横幅を親と揃える */
+/* 子・孫・孫答えアコーディオンの横位置を parent-text と揃える */
+.accordion.child,
 .accordion.grandchild,
 .accordion.grandchild.answer {
+    width: 100%;        /* 親 panel-content の padding 内に収める */
+    margin-left: 0;     /* padding を打ち消さない */
+    margin-right: 0;
     background-color: #f0f0f0;
-    width: calc(100% + 32px); /* padding 16px × 2 を打ち消す */
-    margin-left: -16px;       /* 左の padding を打ち消す */
-    margin-right: -16px;      /* 右の padding を打ち消す */
 }
 .icon {
     font-size: 14px;

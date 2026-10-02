@@ -85,6 +85,12 @@ h1 {
     padding-right: 0;
 }
 
+/* 孫アコーディオン直下の panel-content のみ padding を消す */
+.accordion.grandchild:not(.answer) + .panel > .panel-content {
+    padding-left: 0;
+    padding-right: 0;
+}
+
 /* ひ孫アコーディオンの panel-content の padding を消す */
 .accordion.grandchild.answer + .panel > .panel-content {
     padding-bottom: 0;   /* 下だけ消す */

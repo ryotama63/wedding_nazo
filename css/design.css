@@ -46,7 +46,7 @@ h1 {
 }
 /* 子・孫・孫答えアコーディオンの横幅を完全に揃える */
 .accordion.grandchild,
-.accordion.greatgrandchild {
+.accordion.grandchild.answer {
     width: calc(100% + 32px); /* panel-content の左右 padding 16px × 2 を打ち消す */
     margin-left: -16px;
     margin-right: -16px;
@@ -86,14 +86,10 @@ h1 {
 }
 
 /* ひ孫アコーディオンの panel-content の padding を消す */
-.accordion.greatgrandchild + .panel > .panel-content {
+.accordion.grandchild.answer + .panel > .panel-content {
+    padding-bottom: 0;   /* 下だけ消す */
     padding-left: 0;     /* 横位置を揃えるために左右も消す */
     padding-right: 0;
-}
-
-/* ひ孫アコーディオンの panel-content の padding を消す */
-.accordion.answer + .panel > .panel-content {
-    padding-bottom: 0;   /* 下だけ消す */
 }
 
 .accordion-image {

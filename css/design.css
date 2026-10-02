@@ -80,10 +80,17 @@ h1 {
 
 /* 孫アコーディオンの panel-content の padding を消す */
 .accordion.grandchild + .panel > .panel-content {
+    padding-left: 0;     /* 横位置を揃えるために左右も消す */
+    padding-right: 0;
+}
+
+/* 孫アコーディオンの panel-content の padding を消す */
+.accordion.last + .panel > .panel-content {
     padding-bottom: 0;   /* 下だけ消す */
     padding-left: 0;     /* 横位置を揃えるために左右も消す */
     padding-right: 0;
 }
+
 
 .accordion-image {
     width: 100%;        /* パネルの横幅に合わせる */

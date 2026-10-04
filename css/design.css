@@ -54,9 +54,9 @@ h1 {
 /* 子アコーディオンの横幅を親と揃える */
 .accordion.greatgrandchild {
     background-color: #f0f0f0;
-    width: calc(100% + 64px); /* padding 16px × 2 を打ち消す */
-    margin-left: -16px;       /* 左の padding を打ち消す */
-    margin-right: -16px;      /* 右の padding を打ち消す */
+    width: calc(100% + 32px); /* padding 16px × 2 を打ち消す */
+    margin-left: -32px;       /* 左の padding を打ち消す */
+    margin-right: -32px;      /* 右の padding を打ち消す */
 }
 .icon {
     font-size: 14px;

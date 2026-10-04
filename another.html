@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="./css/design.css">
+<title>ヒント</title>
+
+</head>
+<body>
+
+<div class="container">
+
+    <h1>ヒント</h1>
+
+    <button class="accordion">
+        <span>ウェルカムスペースの写真を確認する</span>
+        <span class="icon">▼</span>
+    </button>
+    <div class="panel">
+        <div class="panel-content">
+            <img class="accordion-image" src="./pic/IMG_4475.jpg">
+        </div>
+    </div>
+
+</div>
+<script>
+const accordions = document.querySelectorAll(".accordion");
+
+accordions.forEach(button => {
+    button.addEventListener("click", () => {
+
+        const panel = button.nextElementSibling;
+        const icon = button.querySelector(".icon");
+
+        const isChild = button.classList.contains("child") ||
+                        button.classList.contains("grandchild") ||
+                        button.classList.contains("greatgrandchild");
+        const isOpen = panel.style.height && panel.style.height !== "0px";
+
+        // ★ 子アコーディオンは閉じない
+        if (isChild && isOpen) {
+            return; // 閉じる処理を完全に無効化
+        }
+
+        if (isOpen) {
+            // 親アコーディオンの閉じる処理
+            panel.style.height = "0px";
+            icon.textContent = "▼";
+            button.classList.remove("open");
+
+            panel.addEventListener("transitionend", () => {
+                adjustParentHeight(panel);
+            }, { once: true });
+
+        } else {
+            // 開く処理（親も子も共通）
+            panel.style.height = panel.scrollHeight + "px";
+            button.classList.add("open");
+            if (isChild) {
+                icon.textContent = "";
+            } else {
+                icon.textContent = "▲";
+            }
+
+            adjustParentHeight(panel);
+        }
+    });
+});
+
+// ★★★ 親パネルの高さを正しく再計算する関数 ★★★
+function adjustParentHeight(panel) {
+    let parent = panel.parentElement;
+
+    while (parent) {
+        if (parent.classList.contains("panel")) {
+            parent.style.height = parent.scrollHeight + "px";
+        }
+        parent = parent.parentElement;
+    }
+}
+</script>
+</body>
+</html>

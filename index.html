@@ -203,43 +203,45 @@ accordions.forEach(button => {
         const isChild = button.classList.contains("child") ||
                         button.classList.contains("grandchild") ||
                         button.classList.contains("greatgrandchild");
-
-        const isOpen = panel.style.maxHeight && panel.style.maxHeight !== "0px";
+        const isOpen = panel.style.height && panel.style.height !== "0px";
 
         // ★ 子アコーディオンは閉じない
         if (isChild && isOpen) {
-            return;
+            return; // 閉じる処理を完全に無効化
         }
 
         if (isOpen) {
             // 親アコーディオンの閉じる処理
-            panel.style.maxHeight = "0px";
+            panel.style.height = "0px";
             icon.textContent = "▼";
             button.classList.remove("open");
 
+            panel.addEventListener("transitionend", () => {
+                adjustParentHeight(panel);
+            }, { once: true });
+
         } else {
             // 開く処理（親も子も共通）
-            panel.style.maxHeight = panel.scrollHeight + "px";
+            panel.style.height = panel.scrollHeight + "px";
             button.classList.add("open");
-
             if (isChild) {
                 icon.textContent = "";
             } else {
                 icon.textContent = "▲";
             }
-        }
 
-        adjustParentHeight(panel);
+            adjustParentHeight(panel);
+        }
     });
 });
 
-// ★ 親パネルの高さを正しく再計算する関数
+// ★★★ 親パネルの高さを正しく再計算する関数 ★★★
 function adjustParentHeight(panel) {
     let parent = panel.parentElement;
 
     while (parent) {
         if (parent.classList.contains("panel")) {
-            parent.style.maxHeight = parent.scrollHeight + "px";
+            parent.style.height = parent.scrollHeight + "px";
         }
         parent = parent.parentElement;
     }

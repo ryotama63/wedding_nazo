@@ -192,6 +192,10 @@
 
 </div>
 <script>
+document.querySelectorAll(".panel").forEach(panel => {
+    panel.style.maxHeight = "0px";
+});
+
 const accordions = document.querySelectorAll(".accordion");
 
 accordions.forEach(button => {

@@ -79,7 +79,7 @@
                             最後に「お星さま」がどのようになるかを考えてみましょう</br>
                             導き出された言葉がこの問題の答えになります
                             <!-- ▼▼ ひ孫アコーディオン ▼▼ -->
-                            <button class="accordion grandchild answer">
+                            <button class="accordion greatgrandchild answer">
                                 <span>答えを見る</span>
                                 <span class="icon">▼</span>
                             </button>
@@ -129,7 +129,7 @@
                             青字は新郎のプロフィール赤字は新婦のプロフィールの項目を参照するルールだと推測できます</br>
                             同じルールで答えを導き出しましょう
                             <!-- ▼▼ ひ孫アコーディオン ▼▼ -->
-                            <button class="accordion grandchild answer">
+                            <button class="accordion greatgrandchild answer">
                                 <span>答えを見る</span>
                                 <span class="icon">▼</span>
                             </button>
@@ -200,7 +200,7 @@ accordions.forEach(button => {
         const panel = button.nextElementSibling;
         const icon = button.querySelector(".icon");
 
-        const isChild = button.classList.contains("child") || button.classList.contains("grandchild");
+        const isChild = button.classList.contains("child") || button.classList.contains("grandchild") || button.classList.contains("greatgrandchild");
         const isOpen = panel.style.height && panel.style.height !== "0px";
 
         // ★ 子アコーディオンは閉じない

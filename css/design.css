@@ -54,7 +54,7 @@ h1 {
 /* 子アコーディオンの横幅を親と揃える */
 .accordion.greatgrandchild {
     background-color: #f0f0f0;
-    width: calc(100% + 64px); /* padding 16px × 2 を打ち消す */
+    width: calc(100%); /* padding 16px × 2 を打ち消す */
 }
 .icon {
     font-size: 14px;
@@ -89,12 +89,13 @@ h1 {
     padding-right: 0;
 }
 /* 孫アコーディオンの panel-content の padding を消す */
-.accordion.greatgrandchild + .panel > .panel-content {
+.accordion.greatgrandchild.answer + .panel > .panel-content {
     padding-left: 0;     /* 横位置を揃えるために左右も消す */
     padding-right: 0;
+    padding-bottom: 0;   /* 下だけ消す */
 }
 /* 孫アコーディオンの panel-content の padding を消す */
-.accordion.answer + .panel > .panel-content {
+.accordion.grandchild.answer + .panel > .panel-content {
     padding-bottom: 0;   /* 下だけ消す */
 }
 
